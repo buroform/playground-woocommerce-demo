@@ -41,7 +41,7 @@
       },
       {
         "step": "installPlugin",
-        "pluginZipFile": {
+        "pluginData": {
           "resource": "wordpress.org/plugins",
           "slug": "woocommerce"
         },
@@ -51,7 +51,7 @@
       },
       {
         "step": "installPlugin",
-        "pluginZipFile": {
+        "pluginData": {
           "resource": "wordpress.org/plugins",
           "slug": "wordpress-importer"
         },
@@ -65,7 +65,7 @@
       },
       {
         "step": "installTheme",
-        "themeZipFile": {
+        "themeData": {
           "resource": "wordpress.org/themes",
           "slug": "storefront"
         },
@@ -81,6 +81,12 @@
           "step": "wp-cli",
           "command": "wp language plugin install woocommerce nl_NL"
       },
+      {
+        "step": "setSiteOptions",
+        "options": {
+          "woocommerce_coming_soon": "no"
+        }
+      }
       {
         "step": "login",
         "username": "admin",
