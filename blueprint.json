@@ -86,7 +86,7 @@
         "options": {
           "woocommerce_coming_soon": "no"
         }
-      }
+      },
       {
         "step": "login",
         "username": "admin",
