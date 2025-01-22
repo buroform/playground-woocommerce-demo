@@ -1,0 +1,91 @@
+{
+    "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+    "meta": {
+      "title": "WooCommerce Demo | Buroform",
+      "description": "WooCommerce Demo",
+      "author": "Buroform",
+      "categories": ["WooCommerce", "Site"]
+    },
+    "landingPage": "/shop",
+    "preferredVersions": {
+      "php": "8.3",
+      "wp": "6.7.1"
+    },
+    "features": {
+      "networking": true
+    },
+    "steps": [
+      {
+        "step": "resetData"
+      },
+      { "step": "setSiteLanguage", "language": "nl_NL" },
+      {
+        "step": "setSiteOptions",
+        "options": {
+          "blogname": "WooCommerce Demo | Buroform",
+          "woocommerce_store_city": "Belgium",
+          "woocommerce_store_address": "Zandvoortstraat 6",
+          "woocommerce_store_postcode": "2800",
+          "woocommerce_default_country": "Mechelen",
+          "woocommerce_onboarding_profile": {
+            "skipped": true
+          },
+          "woocommerce_currency": "EUR",
+          "woocommerce_weight_unit": "kg",
+          "woocommerce_dimension_unit": "cm",
+          "woocommerce_allow_tracking": "no",
+          "woocommerce_cheque_settings": {
+            "enabled": "yes"
+          }
+        }
+      },
+      {
+        "step": "installPlugin",
+        "pluginZipFile": {
+          "resource": "wordpress.org/plugins",
+          "slug": "woocommerce"
+        },
+        "options": {
+          "activate": true
+        }
+      },
+      {
+        "step": "installPlugin",
+        "pluginZipFile": {
+          "resource": "wordpress.org/plugins",
+          "slug": "wordpress-importer"
+        },
+        "options": {
+          "activate": true
+        }
+      },
+      {
+        "step": "wp-cli",
+        "command": "wp import /wordpress/wp-content/plugins/woocommerce/sample-data/sample_products.xml --authors=create"
+      },
+      {
+        "step": "installTheme",
+        "themeZipFile": {
+          "resource": "wordpress.org/themes",
+          "slug": "storefront"
+        },
+        "options": {
+          "activate": true
+        }
+      },
+      {
+          "step": "wp-cli",
+          "command": "wp language theme install storefront nl_NL"
+      },
+      {
+          "step": "wp-cli",
+          "command": "wp language plugin install woocommerce nl_NL"
+      },
+      {
+        "step": "login",
+        "username": "admin",
+        "password": "admin"
+      }
+    ]
+  }
+  
