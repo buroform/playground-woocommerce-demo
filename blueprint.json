@@ -23,10 +23,10 @@
         "step": "setSiteOptions",
         "options": {
           "blogname": "WooCommerce Demo | Buroform",
-          "woocommerce_store_city": "Belgium",
+          "woocommerce_store_city": "Machelen",
           "woocommerce_store_address": "Zandvoortstraat 6",
           "woocommerce_store_postcode": "2800",
-          "woocommerce_default_country": "Mechelen",
+          "woocommerce_default_country": "Belgium",
           "woocommerce_onboarding_profile": {
             "skipped": true
           },
